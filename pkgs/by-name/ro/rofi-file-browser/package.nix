@@ -39,6 +39,12 @@ stdenv.mkDerivation rec {
 
   dontUseCmakeBuildDir = true;
 
+  # fix compile issue, fixed here:
+  # https://github.com/marvinkreis/rofi-file-browser-extended/issues/52
+  patches = [
+    ./fix-pointer-issue.patch
+  ];
+
   meta = with lib; {
     description = "Use rofi to quickly open files";
     homepage = "https://github.com/marvinkreis/rofi-file-browser-extended";
